@@ -1,60 +1,67 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
+  <div>
+     <v-app-bar
+      color="green darken-4"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      <v-toolbar-title>Campeonato Brasileiro ⚽</v-toolbar-title>
+    </v-app-bar>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
+        <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+    >
+      <v-list
+        nav
+        dense
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+        <v-list-item-group
+          v-model="group"
+          active-class="green--text text--lighten-2"
+        >
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Início</v-list-item-title>
+          </v-list-item>
 
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-soccer</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Classificação</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+
+     
+  </div>
     <v-main>
-      <HelloWorld/>
+      
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
+  
 
   components: {
-    HelloWorld,
   },
 
   data: () => ({
-    //
+    drawer: false,
+      group: null,
   }),
 };
 </script>
